@@ -1,7 +1,11 @@
 #!/bin/bash -e -o pipefail
 
+source ~/utils/utils.sh
+arch=$(get_arch)
+
 MINICONDA_INSTALLER="/tmp/miniconda.sh"
-curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o $MINICONDA_INSTALLER
+
+curl -fsSL "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-$arch.sh" -o $MINICONDA_INSTALLER
 chmod +x $MINICONDA_INSTALLER
 sudo $MINICONDA_INSTALLER -b -p /usr/local/miniconda
 
